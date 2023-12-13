@@ -11,17 +11,25 @@ corresponding to Red (R), Green (G) and Blue (B) components. This color encoding
 W×H will be represented as an array of size H×W×3 (sometimes the order of components might be different, but the idea is the same).
 Multi-dimensional arrays are also called **tensors** (before training any models we need to convert our dataset into a set of tensors).
 
-Use **Open CV, or PIL/Pillow, or imageio** to load your image into numpy array, you can easily convert it to tensors. It is important to make sure that all values are **scaled to the range [0..1]** before you pass them to a neural network - it is the usual convention for data preparation. It is important to note that all images should be scaled to the same **size** (either by cropping images, or by padding extra space).
-
-Tools:
-* Pytorch: ImageFolder does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure. 
+Use **Open CV, or PIL/Pillow, or imageio** to load your image into numpy array, you can easily convert it to tensors. It is important to make sure that all values are **scaled to the range [0..1]** before you pass them to a neural network - it is the usual convention for data preparation. It is important to note that all images should be scaled to the same **size** (either by cropping images, or by padding extra space). 
 
 Data set used:
 * MNIST
+* Fashion MNIST
 * CIFAR-10
 
+### TensorFlow
+In version 2 TensorFlow added a higher-level neural network construction API called Keras. With Keras, most model building steps can be done in a much simpler way. Only switching to pure TensorFlow when you need to develop some custom architectures for research or more complex scenarios.
+
 ### PyTorch
-## Simple dense neural network
+Even better approach is to use functionality in Torchvision library, namely ImageFolder. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
+
+## Simple dense neural network (DNN)
+Fully-connected layer or Dense layer:
+* imge shape
+* input layer (flatten)
+* output layer (softmax)
+
 ## Convolutional Neural Networks (CNN)
 ## Pre-trained network with transfer learning
 ## MobileNet5
