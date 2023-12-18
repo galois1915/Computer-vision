@@ -30,6 +30,17 @@ Fully-connected layer or Dense layer:
 * input layer (flatten)
 * output layer (softmax)
 
+In **Multi-layer network** take account:
+* A number of parameters of nerual network should be chosen depending on the dataset size, to prevent overfitting.
+* Inserting non-linear functions in between layers is important (ReLU), achieve high expressive power.
+
+**Overfitting** is a very important concept to understand. It means that our model fits the training data very well, but does not further generalize well on unseen data. Often overfitting results in validation accuracy starting to increase, which means that model is becoming worse with further training. What you can do to overcome overfitting:
+* Make the model less powerful by decreasing the number of parameters
+* Increase the number of training examples, maybe by using some clever approaches such as data augmentation
+* Stop training as soon as validation accuracy starts dropping
+
+Multi-level networks can achieve higher accuracy than single-layer perceptron, however, they are not perfect for computer vision tasks. In images, there are some structural patterns that can help us classify an object regardless of it's position in the image, but perceptrons do not allow us to extract those patterns and look for them selectively.
+
 ## Convolutional Neural Networks (CNN)
 ## Pre-trained network with transfer learning
 ## MobileNet5
