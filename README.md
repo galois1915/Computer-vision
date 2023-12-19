@@ -13,7 +13,7 @@ Multi-dimensional arrays are also called **tensors** (before training any models
 
 Use **Open CV, or PIL/Pillow, or imageio** to load your image into numpy array, you can easily convert it to tensors. It is important to make sure that all values are **scaled to the range [0..1]** before you pass them to a neural network - it is the usual convention for data preparation. It is important to note that all images should be scaled to the same **size** (either by cropping images, or by padding extra space). 
 
-**Tensors** are similar to NumPy arrays and ndarrays, except that tensors can run on GPUs or other hardware accelerators. In fact, tensors and NumPy arrays can often share the same underlying memory address with a capability called <code>bridge-to-np-label<code>, which eliminates the need to copy data. Tensors are also optimized for automatic differentiation 
+**Tensors** are similar to NumPy arrays and ndarrays, except that tensors can run on GPUs or other hardware accelerators. In fact, tensors and NumPy arrays can often share the same underlying memory address with a capability called <code>bridge-to-np-label</code>, which eliminates the need to copy data. Tensors are also optimized for automatic differentiation 
 
 Data set used:
 * MNIST
@@ -31,9 +31,9 @@ CPU).
 By default, tensors are created on the CPU. Tensors can also be computed to GPUs; to do that, you need to move them using the `.to` method (after checking for GPU availability). Keep in mind that copying large tensors across devices can be expensive in terms of time and memory!
 
 ### PyTorch
- PyTorch provides two data primitives: <code>torch.utils.data.DataLoader<code> and <code>torch.utils.data.Dataset<code> that enable you to use pre-loaded datasets as well as your own data.
+ PyTorch provides two data primitives: <code>torch.utils.data.DataLoader</code> and <code>torch.utils.data.Dataset</code> that enable you to use pre-loaded datasets as well as your own data.
 
-Even better approach is to use functionality in **Torchvision library**, namely <code>ImageFolder<code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
+Even better approach is to use functionality in **Torchvision library**, namely <code>ImageFolder</code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
 
 ## Simple dense neural network (DNN)
 Fully-connected layer or Dense layer:
