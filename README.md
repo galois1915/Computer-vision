@@ -13,6 +13,8 @@ Multi-dimensional arrays are also called **tensors** (before training any models
 
 Use **Open CV, or PIL/Pillow, or imageio** to load your image into numpy array, you can easily convert it to tensors. It is important to make sure that all values are **scaled to the range [0..1]** before you pass them to a neural network - it is the usual convention for data preparation. It is important to note that all images should be scaled to the same **size** (either by cropping images, or by padding extra space). 
 
+**Tensors** are similar to NumPy arrays and ndarrays, except that tensors can run on GPUs or other hardware accelerators. In fact, tensors and NumPy arrays can often share the same underlying memory address with a capability called <code>bridge-to-np-label<code>, which eliminates the need to copy data. Tensors are also optimized for automatic differentiation 
+
 Data set used:
 * MNIST
 * Fashion MNIST
@@ -21,8 +23,17 @@ Data set used:
 ### TensorFlow
 In version 2 TensorFlow added a higher-level neural network construction API called Keras. With Keras, most model building steps can be done in a much simpler way. Only switching to pure TensorFlow when you need to develop some custom architectures for research or more complex scenarios.
 
+**There are more than 100 tensor operations**, including arithmetic, linear algebra, matrix manipulation (such as transposing, indexing, and slicing). For sampling and reviewing, you'll find a comprehensive description [here](https://pytorch.org/docs/stable/torch.html). Each of these operations can be run on the GPU (at typically higher speeds than on a
+CPU).
+* CPUs have up to 16 cores. Cores are units that do the actual computation. Each core processes tasks in a sequential order (one task at a time).
+* GPUs have 1000s of cores.  GPU cores handle computations in parallel processing. Tasks are divided and processed across the different cores. That's what makes GPUs faster than CPUs in most cases. GPUs perform better with large data than small data. GPU are typically used for high-intensive computation of graphics or neural networks (we'll learn more about that later in the Neural Network unit).
+* PyTorch can use the Nvidia CUDA library to take advantage of their GPU cards.
+By default, tensors are created on the CPU. Tensors can also be computed to GPUs; to do that, you need to move them using the `.to` method (after checking for GPU availability). Keep in mind that copying large tensors across devices can be expensive in terms of time and memory!
+
 ### PyTorch
-Even better approach is to use functionality in Torchvision library, namely ImageFolder. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
+ PyTorch provides two data primitives: <code>torch.utils.data.DataLoader<code> and <code>torch.utils.data.Dataset<code> that enable you to use pre-loaded datasets as well as your own data.
+
+Even better approach is to use functionality in **Torchvision library**, namely <code>ImageFolder<code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
 
 ## Simple dense neural network (DNN)
 Fully-connected layer or Dense layer:
