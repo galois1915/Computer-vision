@@ -35,8 +35,10 @@ By default, tensors are created on the CPU. Tensors can also be computed to GPUs
 
 Even better approach is to use functionality in **Torchvision library**, namely <code>ImageFolder</code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure
 
-## Simple dense neural network (DNN)
-Fully-connected layer or Dense layer:
+## Dense neural network (DNN)
+Deep Neural Network (DNN), also called Deep Nets, is a neural network with a certain level of complexity. It can be considered as stacked neural networks, or networks composed of several layers, usually two or more, that include input, output, and at least one hidden layer in between.
+PUTIMAGE
+Fully-connected layer (Dense layer):
 * imge shape
 * input layer (flatten)
 * output layer (softmax)
@@ -53,6 +55,29 @@ In **Multi-layer network** take account:
 Multi-level networks can achieve higher accuracy than single-layer perceptron, however, they are not perfect for computer vision tasks. In images, there are some structural patterns that can help us classify an object regardless of it's position in the image, but perceptrons do not allow us to extract those patterns and look for them selectively.
 
 ## Convolutional Neural Networks (CNN)
+Computer vision is different from generic classification, because when we are trying to find a certain object in the picture, we are scanning the image looking for some specific **patterns** and their combinations. For example, when looking for a cat, we first may look for horizontal lines, which can form whiskers, and then certain combination of whiskers can tell us that it is actually a picture of a cat. The position and presence of certain patterns are important. 
+
+key concepts in CNNs for computer vision: 
+
+### Convolutional filter
+IMG: https://medium.com/advanced-deep-learning/cnn-operation-with-2-kernels-resulting-in-2-feature-mapsunderstanding-the-convolutional-filter-c4aad26cf32
+Convolutional filters are small windows that run over each pixel of the image and compute weighted average of the neighboring pixels. Example
+$$
+\left(
+    \begin{matrix}
+     -1 & 0 & 1 \cr
+     -1 & 0 & 1 \cr
+     -1 & 0 & 1 \cr
+    \end{matrix}
+\right)
+$$
+When this filter goes over relatively uniform pixel field, all values add up to 0. When it encounters a vertical edge in the image, high spiked value is generated. 
+
+In classical computer vision, multiple filters were applied to the image to generate features, which then were used by machine learning algorithm to build a classifier. In deep learning we construct networks that learn the best convolutional filters to solve classification problem on its own.
+
+### Convolutional layers
+### Pooling layers
+
 ## Pre-trained network with transfer learning
 ## MobileNet5
 
