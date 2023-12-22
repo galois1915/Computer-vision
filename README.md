@@ -88,7 +88,12 @@ In classical computer vision, multiple filters were applied to the image to gene
 * filters - number of filters to use. We will use 9 different filters, which will give the network plenty of opportunities to explore which filters work best for our scenario.
 * kernel_size is the size of the sliding window. Usually 3x3 or 5x5 filters are used.
 
+> If you have an input with 3 channels and you apply 16 filters, each filter consisting of three matrices (one for each channel), the result after applying each filter is summed across channels to produce one channel in the feature map. After applying all 16 filters, you end up with a feature map that has 16 channels.
+
 ### Pooling layers
+Once we have detected there is a horizontal stoke within sliding 3x3 window, it is not so important at which exact pixel it occurred. Thus we can "scale down" the size of the image, which is done using one of the pooling layers:
+* **Average Pooling** takes a sliding window (for example, 2x2 pixels) and computes an average of values within the window
+* **Max Pooling replaces** the window with the maximum value. The idea behind max pooling is to detect a presence of a certain pattern within the sliding window.
 
 ## Pre-trained network with transfer learning
 ## MobileNet5
