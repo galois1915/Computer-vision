@@ -24,6 +24,8 @@ By default, tensors are created on the CPU. Tensors can also be computed to GPUs
 
 While training a model, we typically want to pass samples in "minibatches", reshuffle the data at every epoch to reduce model overfitting, and use Python's multiprocessing to speed up data retrieval.
 
+When training neural networks, the most frequently used algorithm is <code>back propagation</code>. In this algorithm, parameters (model weights) are adjusted according to the gradient of the loss function with respect to the given parameter. The loss function calculates the difference between the expected output and the actual output that a neural network produces. The goal is to get the result of the loss function as close to zero as possible. The algorithm traverses backwards through the neural network to adjust the weights and bias to retrain the model. That's why it's called back propagation. This back and forward process of retraining the model over time to reduce the loss to 0 is called the gradient descent.
+
 Data set used:
 * MNIST
 * Fashion MNIST
@@ -37,7 +39,12 @@ The <code>torch.nn</code> namespace provides all the building blocks you'll need
 
 PyTorch provides two data primitives: <code>torch.utils.data.DataLoader</code> and <code>torch.utils.data.Dataset</code> that enable you to use pre-loaded datasets as well as your own data.
 
-Even better approach is to use functionality in **Torchvision library**, namely <code>ImageFolder</code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure. PyTorch domain libraries provide a number of sample pre-loaded datasets (such as FashionMNIST) that subclass torch.utils.data.Dataset and implement functions specific to the particular data.
+PyTorch offers domain-specific libraries such as:
+* TorchText
+* TorchVision
+* TorchAudio
+
+One functionality in **Torchvision library** is <code>ImageFolder</code>. It does all the preprocessing steps automatically, and also assigns labels to images according to the directory structure. PyTorch domain libraries provide a number of sample pre-loaded datasets (such as FashionMNIST) that subclass torch.utils.data.Dataset and implement functions specific to the particular data.
 
 ## Deep neural network (DNN)
 DA neural network is a collection of neurons that are connected by layers. Each neuron is a small computing unit that performs simple calculations to collectively solve a problem. Neurons are organized in 3 types of layers: **input layer, hidden layer, and output layer**. The hidden and output layers contain a number of neurons. Neural networks mimic the way a human brain processes information.
