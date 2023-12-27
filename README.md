@@ -34,6 +34,10 @@ Data set used:
 ### TensorFlow
 In version 2 TensorFlow added a higher-level neural network construction API called Keras. With Keras, most model building steps can be done in a much simpler way. Only switching to pure TensorFlow when you need to develop some custom architectures for research or more complex scenarios.
 
+In real life, the size of image datasets can be pretty large, and one cannot rely on all data being able to fit into memory. Thus, datasets are often represented as **generators** that can return data in minibatches for training. Keras includes a helper function <code>image_dataset_from_directory</code>, which can load images from subdirectories corresponding to different classes. This function takes care of scaling images, and it can split dataset into train and test subsets.
+
+There are many pre-trained neural networks for image classification. Many of those models are available inside the <code>keras.applications</code> namespace, and even more models can be found on the Internet, as (VGG-16).
+
 ### PyTorch
 The <code>torch.nn</code> namespace provides all the building blocks you'll need to build your own neural network. 
 
@@ -103,5 +107,14 @@ Once we have detected there is a horizontal stoke within sliding 3x3 window, it 
 * **Max Pooling replaces** the window with the maximum value. The idea behind max pooling is to detect a presence of a certain pattern within the sliding window.
 
 ## Pre-trained network with transfer learning
+Training CNNs can take a lot of time and a lot of data is required for that task. Much of the time is spent to experimenting to find the best low-level filters that a network needs to extract patterns from the images. A natural question arises - can we use a neural network trained on one dataset and adapt it to classifying different images without full training process?
+
+This approach is called transfer learning, because we transfer some knowledge from one neural network model to another. In transfer learning, we typically start with a pre-trained model, which has been trained on some large image dataset, such as ImageNet. Those models already do a good job extracting different features from generic images, and in many cases just building a classifier on top of those extracted features can yield a good result.
+
+There are many pre-trained neural networks for image classification. Many of those models are available inside the <code>keras.applications</code> namespace, and even more models can be found on the Internet:
+* VGG16
+* ResNet
+* Inception
+
 ## MobileNet5
 
