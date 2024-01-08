@@ -111,10 +111,26 @@ Training CNNs can take a lot of time and a lot of data is required for that task
 
 This approach is called transfer learning, because we transfer some knowledge from one neural network model to another. In transfer learning, we typically start with a pre-trained model, which has been trained on some large image dataset, such as ImageNet. Those models already do a good job extracting different features from generic images, and in many cases just building a classifier on top of those extracted features can yield a good result.
 
-There are many pre-trained neural networks for image classification. Many of those models are available inside the <code>keras.applications</code> namespace, and even more models can be found on the Internet:
+There are many pre-trained neural networks for image classification. Many of those models are available inside the <code>keras.applications</code> namespace, and even more models can be found on the Internet.
+
+Classification Models:
+* SIFT + FVs
+* Sparse coding
 * VGG16
 * ResNet
 * Inception
+* DenseNet
+* AlexNet
+
+Object Detection Models:
+* Yolo
+* EfficientDet
+* RetinaNet
+* Faster R-CNN
+* Mask R-CNN
+* CenterNet
+* DETR
+* SSD
 
 ## MobileNet5
 
